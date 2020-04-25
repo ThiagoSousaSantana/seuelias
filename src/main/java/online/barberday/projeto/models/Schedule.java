@@ -60,4 +60,15 @@ public class Schedule {
     public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
     }
+
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "id=" + id +
+                ", branch='" + branch + '\'' +
+                ", services=" + services +
+                ", barber='" + barber + '\'' +
+                ", dateTime=" + dateTime +
+                '}';
+    }
 }
