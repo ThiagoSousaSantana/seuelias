@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Schedule {
@@ -70,5 +71,20 @@ public class Schedule {
                 ", barber='" + barber + '\'' +
                 ", dateTime=" + dateTime +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Schedule schedule = (Schedule) o;
+        return Objects.equals(branch, schedule.branch) &&
+                Objects.equals(barber, schedule.barber) &&
+                Objects.equals(dateTime, schedule.dateTime);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(branch, barber, dateTime);
     }
 }
